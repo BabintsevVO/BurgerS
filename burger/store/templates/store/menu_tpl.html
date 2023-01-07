@@ -1,0 +1,15 @@
+<div class="{{ menu_class }}">
+    <div class="row">
+        {% for item in categories %}
+        <div class="col-md col-lg">
+            <div class="single_delicious d-flex align-items-center">
+                <div class="info">
+                    <h3 style="color:#F2C64D; text-align: center">
+                        <a href="{{ item.get_absolute_url }}" >{{ item.name }}</a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
