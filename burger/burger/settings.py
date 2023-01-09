@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'ckeditor',
 
     'store',
+    'blog',
 ]
 
 MIDDLEWARE = [
