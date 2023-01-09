@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load sidebar %}
 
 {% block title %}{{ title }}{% endblock %}
 
@@ -35,14 +36,25 @@
                             <p>{{ post.content|safe }}</p>
                             <ul class="blog-info-link">
 
+                                <span>
+                                    <li>Category:
+                                        <a href="{{ post.category.get_absolute_url }}">{{ post.category }}</a>
+                                    </li>
+                                </span>
+
+                                <br>
+
                                 {% if post.tags.exists %}
                                 <span>
+                                   <li>Tags:</li>
                                     {% for tag in post.tags.all %}
-                                    <li><a href="#">
-                                        <i class="fa fa-user"></i>{{ tag.title }}</a></li>
+                                    <li>
+                                    <a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
+                                   </li>
                                     {% endfor %}
-                                {% endif %}
+
                                 </span>
+                                {% endif %}
                             </ul>
                         </div>
                     </article>
@@ -102,117 +114,11 @@
                         </form>
                     </aside>
 
-                    <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Category</h4>
-                        <ul class="list cat-list">
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Resaurant food</p>
-                                    <p>(37)</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Travel news</p>
-                                    <p>(10)</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Modern technology</p>
-                                    <p>(03)</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Product</p>
-                                    <p>(11)</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Inspiration</p>
-                                    <p>21</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex">
-                                    <p>Health Care (21)</p>
-                                    <p>09</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </aside>
+                    {% get_categories %}
 
-                    <aside class="single_sidebar_widget popular_post_widget">
-                        <h3 class="widget_title">Recent Post</h3>
-                        <div class="media post_item">
-                            <img src="img/post/post_1.png" alt="post">
-                            <div class="media-body">
-                                <a href="single-blog.html">
-                                    <h3>From life was you fish...</h3>
-                                </a>
-                                <p>January 12, 2019</p>
-                            </div>
-                        </div>
-                        <div class="media post_item">
-                            <img src="img/post/post_2.png" alt="post">
-                            <div class="media-body">
-                                <a href="single-blog.html">
-                                    <h3>The Amazing Hubble</h3>
-                                </a>
-                                <p>02 Hours ago</p>
-                            </div>
-                        </div>
-                        <div class="media post_item">
-                            <img src="img/post/post_3.png" alt="post">
-                            <div class="media-body">
-                                <a href="single-blog.html">
-                                    <h3>Astronomy Or Astrology</h3>
-                                </a>
-                                <p>03 Hours ago</p>
-                            </div>
-                        </div>
-                        <div class="media post_item">
-                            <img src="img/post/post_4.png" alt="post">
-                            <div class="media-body">
-                                <a href="single-blog.html">
-                                    <h3>Asteroids telescope</h3>
-                                </a>
-                                <p>01 Hours ago</p>
-                            </div>
-                        </div>
-                    </aside>
+                    {% get_popular_post %}
 
-                    <aside class="single_sidebar_widget tag_cloud_widget">
-                        <h4 class="widget_title">Tag Clouds</h4>
-                        <ul class="list">
-                            <li>
-                                <a href="#">project</a>
-                            </li>
-                            <li>
-                                <a href="#">love</a>
-                            </li>
-                            <li>
-                                <a href="#">technology</a>
-                            </li>
-                            <li>
-                                <a href="#">travel</a>
-                            </li>
-                            <li>
-                                <a href="#">restaurant</a>
-                            </li>
-                            <li>
-                                <a href="#">life style</a>
-                            </li>
-                            <li>
-                                <a href="#">design</a>
-                            </li>
-                            <li>
-                                <a href="#">illustration</a>
-                            </li>
-                        </ul>
-                    </aside>
+                    {% get_tags %}
 
                     <aside class="single_sidebar_widget instagram_feeds">
                         <h4 class="widget_title">Instagram Feeds</h4>

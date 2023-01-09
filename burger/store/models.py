@@ -14,7 +14,7 @@ class ProductCategory(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('category', kwargs={"slug": self.slug})
+        return reverse('store_category', kwargs={"slug": self.slug})
 
 
 class Product(models.Model):
