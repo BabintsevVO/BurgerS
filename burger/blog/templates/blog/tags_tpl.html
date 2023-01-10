@@ -4,7 +4,7 @@
 
       {% for tag in tags %}
         <li>
-            <a href="#">{{tag.title}}</a>
+            <a href="{{ tag.get_absolute_url }}">{{tag.title}}</a>
         </li>
       {% endfor %}
 

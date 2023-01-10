@@ -2,7 +2,7 @@
 {% load static %}
 {% load sidebar %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}Search{% endblock %}
 
 {% block content %}
 
@@ -96,7 +96,7 @@
                 <div class="blog_right_sidebar">
 
                     <aside class="single_sidebar_widget search_widget">
-                        <form action="{% url 'search' %}">
+                        <form action="#">
                             <div class="form-group">
                                 <div class="input-group mb-3">
                                     <input type="text" name="s" class="form-control" placeholder='Search Keyword'
