@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="blog_details">
-                            <a class="d-inline-block" href="single-blog.html">
+                            <a class="d-inline-block" href="{{ post.get_absolute_url }}">
                                 <h2>{{ post.title }}</h2>
                             </a>
                             <p>{{ post.content|safe }}</p>
@@ -51,9 +51,9 @@
                                     <a href="{{ tag.get_absolute_url }}">{{ tag.title }}</a>
                                    </li>
                                     {% endfor %}
-
                                 </span>
                                 {% endif %}
+
                             </ul>
                         </div>
                     </article>
@@ -103,7 +103,7 @@
                                            onfocus="this.placeholder = ''"
                                            onblur="this.placeholder = 'Search Keyword'">
                                     <div class="input-group-append">
-                                        <button class="btn" type="button"><i class="ti-search"></i></button>
+                                        <button class="btn" type="submit"><i class="ti-search"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -132,41 +132,7 @@
                                     <img class="img-fluid" src="img/post/post_6.png" alt="">
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
-                                    <img class="img-fluid" src="img/post/post_7.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img class="img-fluid" src="img/post/post_8.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img class="img-fluid" src="img/post/post_9.png" alt="">
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <img class="img-fluid" src="img/post/post_10.png" alt="">
-                                </a>
-                            </li>
                         </ul>
-                    </aside>
-
-                    <aside class="single_sidebar_widget newsletter_widget">
-                        <h4 class="widget_title">Newsletter</h4>
-
-                        <form action="#">
-                            <div class="form-group">
-                                <input type="email" class="form-control" onfocus="this.placeholder = ''"
-                                       onblur="this.placeholder = 'Enter email'" placeholder='Enter email' required>
-                            </div>
-                            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                                    type="submit">Subscribe
-                            </button>
-                        </form>
                     </aside>
 
                 </div>

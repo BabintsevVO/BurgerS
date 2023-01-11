@@ -8,7 +8,7 @@
 
 {% block slider_area %}
 <div class="bradcam_area breadcam_bg">
-    <h3><a href="{% url 'blog' %}">blog</a></h3>
+    <h3>Search</h3>
 </div>
 {% endblock %}
 
@@ -65,7 +65,8 @@
 
                             {% if page_obj.has_previous %}
                             <li class="page-item">
-                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                                <a class="page-link"
+                                   href="?page={{ page_obj.previous_page_number }}">Previous</a>
                             </li>
                             {% endif %}
 
@@ -75,7 +76,7 @@
                                 <a class="page-link" tabindex="-1">{{ p }}</a>
                             </li>
                             {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3 %}
-                            <li class="page-item"><a class="page-link" href="?page={{ p }}">{{ p }}</a></li>
+                            <li class="page-item"><a class="page-link" href="?{{ s }}page={{ p }}">{{ p }}</a></li>
                             {% endif %}
                             {% endfor %}
 

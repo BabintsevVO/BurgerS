@@ -31,6 +31,19 @@ class PostByCategory(ListView):
         return context
 
 
+class GetPost(DetailView):
+    model = Post
+    template_name = 'blog/single_post.html'
+    context_object_name = 'post'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        self.object.views = F('views') + 1
+        self.object.save()
+        self.object.refresh_from_db()
+        return context
+
+
 class PostByTag(ListView):
     template_name = 'blog/blog.html'
     context_object_name = 'posts'
@@ -56,6 +69,7 @@ class Search(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['s']= f"s={self.request.GET.get('s')}&"
         return context
 
 # def blog(request):
