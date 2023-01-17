@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+
+{% block slider_area %}}
+<div class="bradcam_area breadcam_bg_1 overlay">
+    <h3>Registration</h3>
+</div>
+{% endblock %}
+
+{% block best_burgers_area %}
+<div class="best_burgers_area">
+    <div class="container">
+
+        <form class="login100-form validate-form" action="{% url 'registration' %}" method="post">
+
+            {% csrf_token %}
+            {% if form.errors %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert"
+                 style="margin-top: 50px;">
+                {{ form.errors }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            {% endif %}
+
+            <div class="row">
+
+                <div class="col-lg-6 col-md-6">
+                    <div class="wrap-input100 validate-input text-center"
+                         data-validate="Valid email is required: ex@abc.xyz">
+                        <div class="section_title text-center" for="{{ form.first_name.id_for_label }}">
+                            <span> First_name: </span>
+                        </div>
+                        {{ form.first_name }}
+                        <span class="focus-input100"></span>
+                    </div>
+                    <br>
+                    <div class="wrap-input100 validate-input text-center"
+                         data-validate="Valid email is required: ex@abc.xyz">
+                        <div class="section_title text-center">
+                            <span> Last_name: </span>
+                        </div>
+                        {{ form.last_name }}
+                        <span class="focus-input100"></span>
+                    </div>
+                    <br>
+                    <div class="wrap-input100 validate-input text-center"
+                         data-validate="Valid email is required: ex@abc.xyz">
+                        <div class="section_title text-center">
+                            <span> Login: </span>
+                        </div>
+                        {{ form.username }}
+                        <span class="focus-input100"></span>
+                    </div>
+                </div>
+                <br>
+                <div class="col-lg-6 col-md-6">
+                    <div class="wrap-input100 validate-input text-center"
+                         data-validate="Valid email is required: ex@abc.xyz">
+                        <div class="section_title text-center">
+                            <span> Email: </span>
+                        </div>
+                        {{ form.email }}
+                        <span class="focus-input100"></span>
+                    </div>
+                    <br>
+                    <div class="wrap-input100 validate-input text-center"
+                         data-validate="Password is required">
+                        <div class="section_title text-center">
+                            <span> Password: </span>
+                        </div>
+                        {{ form.password1 }}
+                        <span class="focus-input100"></span>
+                    </div>
+                    <br>
+                    <div class="wrap-input100 validate-input text-center"
+                         data-validate="Confirm Password">
+                        <div class="section_title text-center">
+                            <span>Confirm Password: </span>
+                        </div>
+                        {{ form.password2 }}
+                        <span class="focus-input100"></span>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="room_heading_inner text-center">
+                <button class="boxed-btn3">
+                    Register now
+                </button>
+            </div>
+            <br>
+            <p style="color:blue; font-size:13px" align="center"><em>already have an account?</em></p>
+            <div class="room_heading_inner text-center">
+                <a href="{% url 'login' %}" class="boxed-btn3">Login</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% endblock %}
+

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+{% block slider_area %}
+<div class="bradcam_area breadcam_bg">
+    <h3>Profile</h3>
+</div>
+{% endblock %}
+
+<div class="best_burgers_area">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-5 col-md-5">
+                <div class="section_title text-center">
+                    <span> Profile </span>
+                </div>
+                <form action="{% url 'profile' %}" method="post">
+                    {% csrf_token %}
+
+                    <div class="wrap-input100 validate-input text-center"
+                         data-validate="Valid email is required: ex@abc.xyz">
+                        <div class="section_title text-center">
+                            <span> First name: </span>
+                        </div>
+                        {{ form.first_name }}
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input text-center"
+                         data-validate="Valid email is required: ex@abc.xyz">
+                        <div class="section_title text-center">
+                            <span> Last name: </span>
+                        </div>
+                        {{ form.last_name }}
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input text-center"
+                         data-validate="Valid email is required: ex@abc.xyz">
+                        <div class="section_title text-center">
+                            <span> Login: </span>
+                        </div>
+                        {{ form.username }}
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input text-center"
+                         data-validate="Valid email is required: ex@abc.xyz">
+                        <div class="section_title text-center">
+                            <span> Email: </span>
+                        </div>
+                        {{ form.email }}
+                        <span class="focus-input100"></span>
+                    </div>
+                    <br>
+                    <div class="room_heading_inner text-center">
+                        <button class="boxed-btn3">save</button>
+                    </div>
+                    <br>
+                </form>
+            </div>
+            <!--                basket.html-->
+        </div>
+    </div>
+</div>
+
+{% endblock %}

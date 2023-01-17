@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+{% block slider_area %}
+<div class="bradcam_area breadcam_bg">
+    <h3>Login</h3>
+</div>
+{% endblock %}
+
+<div class="best_burgers_area">
+    <div class="container">
+
+        <form action="{% url 'login' %}" method="post">
+
+            {% csrf_token %}
+            {% if messages or form.errors %}
+            <div class="alert {% if messages %} alert-success {% else %} alert-warning {% endif %}
+                            alert-dismissible fade show" role="alert" style="margin-top: 50px;">
+                {% if messages %}
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+                {% else %}
+                {{ form.non_field_errors }}
+                {% endif %}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">x</span>
+                </button>
+            </div>
+            {% endif %}
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="wrap-input100 validate-input text-center"
+                         data-validate="Valid email is required: ex@abc.xyz">
+                        <div class="section_title text-center">
+                            <span> Login: </span>
+                        </div>
+                        {{ form.username }}
+                        <span class="focus-input100"></span>
+                    </div>
+                </div>
+                <br>
+                <div class="col-lg-6 col-md-6">
+                    <div class="wrap-input100 validate-input text-center" data-validate="Password is required">
+                        <div class="section_title text-center">
+                            <span> Password: </span>
+                        </div>
+                        {{ form.password }}
+                        <span class="focus-input100"></span>
+                    </div>
+                </div>
+                <br>
+            </div>
+
+            <div class="section-top-border">
+                <div class="room_heading_inner text-center">
+                    <button class="boxed-btn3">login</button>
+                </div>
+                <br>
+                <div class="room_heading_inner text-center">
+                    <a href="{% url 'registration' %}" class="boxed-btn3">Registration</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}
