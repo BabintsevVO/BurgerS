@@ -20,8 +20,10 @@
 
                     {% for post in posts %}
                     <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img rounded-0" src="{{ post.photo.url }}" alt="">
+                        <div class="blog_item_img" >
+                            <a href="{{ post.get_absolute_url }}">
+                                <img class="card-img rounded-0"  src="{{ post.photo.url }}" alt="">
+                            </a>
                             <a href="#" class="blog_item_date">
                                 <h3>{{ post.created_at|date:"d" }}</h3>
                                 <p>{{ post.created_at|date:"N" }}</p>
