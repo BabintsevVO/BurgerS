@@ -75,7 +75,7 @@
                             <h3><a href="{{ product.get_absolute_url }}"> {{ product.name }}</a></h3>
                             <p>{{ product.short_desription }}</p>
                             <span>{{ product.price }} $</span>
-                            <a href="#" class="boxed-btn3">Order Now</a>
+                            <a href="{% url 'basket_add' product.id %}" class="boxed-btn3">Order Now</a>
                         </div>
                     </div>
                 </div>

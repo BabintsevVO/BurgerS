@@ -75,5 +75,6 @@ class Search(ListView):
 # def blog(request):
 #     return render(request, 'blog/blog.html')
 
+
 def get_category(request, slug):
     return render(request, 'blog/blog.html')

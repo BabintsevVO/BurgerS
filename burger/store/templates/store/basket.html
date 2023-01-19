@@ -1,0 +1,76 @@
+<style>
+   table {
+    width: 100%; /* Ширина таблицы */
+    background: white; /* Цвет фона таблицы */
+    color: black; /* Цвет текста */
+    border-spacing: 1px; /* Расстояние между ячейками */
+   }
+      th {
+   width: 30%;
+    background: gree; /* Цвет фона ячеек */
+    padding: 5px; /* Поля вокруг текста */
+   }
+
+      td{
+      width: 14%;
+    background: gree; /* Цвет фона ячеек */
+    padding: 1px; /* Поля вокруг текста */
+   }
+
+
+
+</style>
+
+
+<div class="col-lg-7 col-md-7">
+    <div class="single-element-widget">
+        <div class="section_title text-center">
+            <span> Basket: </span>
+        </div>
+        {% if baskets %}
+        <table border="1" class="section_title text-center">
+            <tr>
+                <th>Name</th>
+                <td>Img</td>
+                <td >pcs</td>
+                <td>price</td>
+                <td>sum price</td>
+                <td>del</td>
+            </tr>
+        </table>
+
+        {% for basket in baskets %}
+        <table border="1" class="section_title text-center">
+            <th class="section_title text left">
+                <a href="{{ basket.product.get_absolute_url }}"> {{ basket.product.name }}</a>
+            </th>
+            <td><a href="{{ basket.product.get_absolute_url }}">
+                {% if basket.product.image %}
+                <img src="{{ basket.product.image.url }}" width="50" alt="{{ basket.product.name }}">
+                {% else %}
+                <img src="https://picsum.photos/id/1060/166/166/?blur=2" alt="{{ product.name }}" class="thumb">
+                {% endif %}</a>
+            </td>
+            <td><a href="{% url 'basket_add' basket.product.id %}">
+                <button class="btn">+</button></a>
+                {{ basket.quantity }}
+                <a href="{% url 'basket_del_pcs' basket.product.id %}">
+                <button class="btn">-</button></a>
+            </td>
+            <td>{{ basket.product.price }} $</td>
+            <td>{{ basket.basket_sum }} $</td>
+            <td><a href="{% url 'basket_delete' basket.id %}">
+                <button class="btn">del</button>
+            </a>
+            </td>
+        </table>
+        {% endfor %}
+
+        <div class="section_title text-right">
+            <span> Total: {{ total_sum }} $ </span>
+        </div>
+        {% else %}
+        <div class="text-center"><h3>..you dont have products..</h3></div>
+        {% endif %}
+    </div>
+</div>
