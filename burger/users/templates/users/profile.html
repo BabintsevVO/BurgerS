@@ -16,12 +16,14 @@
         <div class="row">
 
             <div class="col-lg-5 col-md-5">
-                <div class="section_title text-center">
-                    <span> Profile </span>
-                </div>
-                <form action="{% url 'profile' %}" method="post">
+<!--                <div class="section_title text-center">-->
+<!--                    <span> Profile </span>-->
+<!--                    <img width='125' src="{% if user.image %} {{ user.image.url }}-->
+<!--                            {% else %} {% static 'img/users/1.jpg' %}-->
+<!--                            {% endif %}">-->
+<!--                </div>-->
+                <form action="{% url 'profile' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
-
                     <div class="wrap-input100 validate-input text-center"
                          data-validate="Valid email is required: ex@abc.xyz">
                         <div class="section_title text-center">

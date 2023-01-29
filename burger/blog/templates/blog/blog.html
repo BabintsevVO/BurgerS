@@ -20,11 +20,11 @@
 
                     {% for post in posts %}
                     <article class="blog_item">
-                        <div class="blog_item_img" >
+                        <div class="blog_item_img">
                             <a href="{{ post.get_absolute_url }}">
-                                <img class="card-img rounded-0"  src="{{ post.photo.url }}" alt="">
+                                <img class="card-img rounded-0" src="{{ post.photo.url }}" alt="">
                             </a>
-                            <a href="#" class="blog_item_date">
+                            <a class="blog_item_date">
                                 <h3>{{ post.created_at|date:"d" }}</h3>
                                 <p>{{ post.created_at|date:"N" }}</p>
                             </a>
@@ -115,6 +115,13 @@
                         </form>
                     </aside>
 
+<!--                    <aside class="single_sidebar_widget post_category_widget">-->
+<!--                        <h4 class="widget_title">-->
+<!--                            Calendar-->
+<!--                        </h4>-->
+<!--                        {{ calend_out|safe }}-->
+<!--                    </aside>-->
+
                     {% get_categories %}
 
                     {% get_popular_post %}
@@ -126,12 +133,12 @@
                         <ul class="instagram_row flex-wrap">
                             <li>
                                 <a href="#">
-                                    <img class="img-fluid" src="img/post/post_5.png" alt="">
+                                    <img class="img-fluid" src="{% static 'img/post/post_5.png' %}" alt="">
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <img class="img-fluid" src="img/post/post_6.png" alt="">
+                                    <img class="img-fluid" src="{% static 'img/post/post_6.png' %}" alt="">
                                 </a>
                             </li>
                         </ul>

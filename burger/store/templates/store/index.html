@@ -134,7 +134,7 @@
                         <h3>Best seller</h3>
                         <span>{{ premium.price }}</span>
                         <h3>{{ premium.name }}</h3>
-                        <a href="#" class="boxed-btn3">Order Now</a>
+                        <a href="{% url 'basket_add' premium.id %}" class="boxed-btn3">Order Now</a>
                     </div>
                 </div>
             </div>

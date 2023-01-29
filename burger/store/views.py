@@ -4,8 +4,6 @@ from django.views.generic import ListView, DetailView
 from .models import ProductCategory, Product, Basket
 
 
-
-
 class Home(ListView):
     model = Product
     template_name = 'store/index.html'
@@ -59,14 +57,13 @@ def basket_delete(request, id):
 def basket_del_pcs(request, product_id):
     product = Product.objects.get(id=product_id)
     baskets = Basket.objects.filter(user=request.user, product=product)
-
-    if not baskets.exists():
-        Basket.objects.create(user=request.user, product=product, quantity=1)
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
-    else:
-        basket = baskets.first()
+    basket = baskets.first()
+    if basket.quantity > 1:
         basket.quantity -= 1
         basket.save()
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    else:
+        basket.delete()
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 
