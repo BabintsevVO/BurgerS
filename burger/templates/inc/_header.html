@@ -9,7 +9,6 @@
                             <nav>
                                 <ul id="navigation">
                                     <li><a class="active" href="{% url 'home' %}">home</a></li>
-<!--                                    <li><a href="about.html">About</a></li>-->
                                     <li><a href="{% url 'blog' %}">Blog</a></li>
 
                                     {% if request.user.is_authenticated %}
